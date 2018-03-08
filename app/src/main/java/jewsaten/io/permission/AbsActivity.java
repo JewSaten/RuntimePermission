@@ -17,10 +17,10 @@ public class AbsActivity extends AppCompatActivity implements RuntimePermission.
 
     private PermissionsCallback mCallback;
 
-    public void checkPermission(Context context, int requestCode, String rationale, String[] perms, PermissionsCallback callback) {
+    public void checkPermission(int requestCode, String rationale, String[] perms, PermissionsCallback callback) {
         mCallback = callback;
-        if (RuntimePermission.hasPermissions(context, perms)) {
-            if (mCallback != null) mCallback.onSuccess(context);
+        if (RuntimePermission.hasPermissions(this, perms)) {
+            if (mCallback != null) mCallback.onSuccess(this);
         } else {
             RuntimePermission.requestPermissions(this, rationale,
                     requestCode, perms);
@@ -34,12 +34,13 @@ public class AbsActivity extends AppCompatActivity implements RuntimePermission.
 
     @Override
     public void onPermissionsDenied(int requestCode, List<String> perms) {
-        RuntimePermission.somePermissionPermanentlyDenied(this, "提示", 0, 0, perms);
+        RuntimePermission.somePermissionPermanentlyDenied(this, getString(R.string.rationale_ask_again),
+                R.string.setting, R.string.cancel, perms);
     }
 
     @Override
-    public void onPermissionsPossessed(Context context) {
-        if (mCallback != null) mCallback.onSuccess(context);
+    public void onPermissionsPossessed() {
+        if (mCallback != null) mCallback.onSuccess(this);
     }
 
     @Override

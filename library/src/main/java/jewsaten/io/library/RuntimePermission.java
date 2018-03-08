@@ -32,7 +32,7 @@ public class RuntimePermission {
 
         void onPermissionsDenied(int requestCode, List<String> perms);
 
-        void onPermissionsPossessed(Context context);
+        void onPermissionsPossessed();
 
     }
 
@@ -136,7 +136,7 @@ public class RuntimePermission {
         // If 100% successful, call annotated methods
         if (!granted.isEmpty() && denied.isEmpty()) {
             if (object instanceof PermissionsResultCallback)
-                ((PermissionsResultCallback) object).onPermissionsPossessed(getActivity(object));
+                ((PermissionsResultCallback) object).onPermissionsPossessed();
         }
     }
 

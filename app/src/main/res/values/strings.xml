@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">RuntimePermission</string>
+    <string name="setting">去设置</string>
+    <string name="cancel">取消</string>
+
+    <string name="rationale_camera">该应用需要访问你的相机拍照功能。</string>
+    <string name="rationale_location_contacts">该应用需要访问你的位置和联系人。</string>
+    <string name="rationale_sms">该应用需要访问你的短信。</string>
+
+    <string name="rationale_ask">当前应用缺少必要权限,这可能导致程序不能正常工作。</string>
+    <string name="rationale_ask_again">
+        当前应用缺少必要权限。\n这可能导致程序不能正常工作。\n请到设置里面打开相应的权限。
+</string>
+
+    <string name="camera">相机</string>
+    <string name="location_and_contacts">位置和联系人</string>
+    <string name="sms">短信</string>
 </resources>
